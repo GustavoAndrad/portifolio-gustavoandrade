@@ -1,0 +1,152 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-h);
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-green);
+}
+
+.menu ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.menu ul li {
+  font-size: 0.95rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.menu ul li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--dark-green);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.menu ul li:hover {
+  color: var(--text-hover);
+  transform: translateY(-5px);
+}
+
+.menu ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact a {
+  color: var(--dark-green);
+}
+
+.contact a:hover {
+  color: var(--text-hover);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 100;
+}
+
+.bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-h);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.rotate-top {
+  transform: translateY(7px) rotate(45deg);
+  background-color: var(--dark-green);
+}
+
+.hide {
+  opacity: 0;
+}
+
+.rotate-bottom {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--dark-green);
+}
+
+.mobile-contact {
+  display: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .desktop-contact {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    z-index: 99;
+  }
+
+  .menu.open {
+    display: block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-contact {
+    display: flex;
+    margin-top: 24px;
+    gap: 16px;
+  }
+}

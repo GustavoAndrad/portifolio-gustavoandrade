@@ -1,0 +1,162 @@
+{
+  "version": "1.0",
+  "updated_at": "15/03/2026",
+  "photo_profile": "https://media.licdn.com/dms/image/v2/D4D03AQHbCHY7hMMXrQ/profile-displayphoto-scale_400_400/B4DZzLFTSqJUAk-/0/1772933694309?e=1775088000&v=beta&t=Wj3zW6uFbmSUoslLdnoYRqupjuKHU0tX9GrYVvGMTNo",
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/gustavo--andrade",
+    "github": "https://github.com/GustavoAndrad",
+    "email": "gustavoandrade@ieee.org"
+  },
+  "interests": {
+    "tecnologias": [
+      { "label": "JavaScript", "logo": "https://cdn.simpleicons.org/javascript/F7DF1E" },
+      { "label": "TypeScript", "logo": "https://cdn.simpleicons.org/typescript/3178C6" },
+      { "label": "Python",     "logo": "https://cdn.simpleicons.org/python/3776AB" },
+      { "label": "Java",       "logo": "https://cdn.simpleicons.org/openjdk/FF0000" },
+      { "label": "C++",        "logo": "https://cdn.simpleicons.org/cplusplus/00599C" },
+      { "label": "Node.js",    "logo": "https://cdn.simpleicons.org/nodedotjs/339933" },
+      { "label": "REST API",   "logo": "https://cdn.simpleicons.org/fastapi/009688" },
+      { "label": "MQTT",       "logo": "https://cdn.simpleicons.org/mqtt/660066" },
+      { "label": "React",      "logo": "https://cdn.simpleicons.org/react/61DAFB" },
+      { "label": "Redux",      "logo": "https://cdn.simpleicons.org/redux/764ABC" },
+      { "label": "Tailwind",   "logo": "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+      { "label": "Sass",       "logo": "https://cdn.simpleicons.org/sass/CC6699" },
+      { "label": "PostgreSQL", "logo": "https://cdn.simpleicons.org/postgresql/4169E1" },
+      { "label": "MySQL",      "logo": "https://cdn.simpleicons.org/mysql/4479A1" },
+      { "label": "MongoDB",    "logo": "https://cdn.simpleicons.org/mongodb/339933" },
+      { "label": "AWS",        "logo": "https://cdn.simpleicons.org/icloud/FF9900" },
+      { "label": "Docker",     "logo": "https://cdn.simpleicons.org/docker/2496ED" },
+      { "label": "Git",        "logo": "https://cdn.simpleicons.org/git/F05032" },
+      { "label": "Figma",      "logo": "https://cdn.simpleicons.org/figma/F24E1E" }
+    ],
+    "formacao": [
+      { "label": "Bacharel em Ciência da Computação", "logo": "🎓", "sub": "CEFET/RJ · 2023 – Presente" },
+      { "label": "Técnico em Informática", "logo": "💻", "sub": "FAETEC · 2020 – 2022" }
+    ],
+    "instituicoes": [
+      { "label": "ONS", "logo": "⚡", "sub": "Estagiário em Inteligência Artificial" },
+      { "label": "IEEE Computer Society", "logo": "🌐", "sub": "Liderança de Desenvolvimento Web" },
+      { "label": "CEFET/RJ", "logo": "🏛️", "sub": "Monitor de Algorítimos, POO e Cálculo" },
+      { "label": "Observatório de Negócios de Impacto Socioambiental", "logo": "🗺️", "sub": "Pesquisador de Dados" },
+      { "label": "FAETEC", "logo": "📗", "sub": "Estagiário em Desenvolvimento Web" }
+    ]
+  },
+  "projects": [
+    {
+      "name": "S.O.N.I.A",
+      "resume": "Sistema multi-agente de IA para análise de dados do ONS",
+      "description": "Plataforma de análise de dados baseada em IA desenvolvida no Hackathon ONS 2025 (DataThons) para democratizar o acesso aos dados públicos do Operador Nacional do Sistema Elétrico. Foi o projeto ganhador da competição. O sistema utiliza uma arquitetura multi-agente com LLMs e busca vetorial para transformar dados técnicos em insights acessíveis por meio de linguagem natural em português. A solução inclui ingestão inteligente de dados a partir de buckets AWS S3, análise automatizada e geração dinâmica de visualizações, permitindo que usuários explorem grandes volumes de dados energéticos de forma simples e eficiente.",
+      "technologies": ["Python", "FastAPI", "React", "LangChain", "AWS S3", "ChromaDB", "LLM"],
+      "repo": "https://github.com/J-cavadinha/Sonia-HackatONS",
+      "deploy": "",
+      "image": "sonia.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Arquitetura do sistema S.O.N.I.A demonstrando a interação entre frontend, agentes de IA e o pipeline de ingestão de dados do Data Lake do ONS." },
+        { "link": "", "type": "image", "description": "Interface da plataforma permitindo consultas em linguagem natural e geração automática de visualizações a partir dos dados energéticos." }
+      ],
+      "documentation": "https://github.com/J-cavadinha/Sonia-HackatONS"
+    },
+    {
+      "name": "Site do Ramo IEEE CEFET/RJ",
+      "resume": "Landing page institucional do ramo estudantil IEEE do CEFET/RJ",
+      "description": "Desenvolvimento do site institucional do ramo estudantil IEEE do CEFET/RJ, incluindo uma landing page para divulgação e uma plataforma de controle de dados de equipes e gerenciamento de processos seletivos. O site apresenta informações sobre o ramo, suas atividades, eventos e projetos, além de um sistema de cadastro e gerenciamento de equipes para facilitar a organização dos processos seletivos e a comunicação com os membros.",
+      "technologies": ["React", "Node.js", "PostgresSQL", "Express", "Docker"],
+      "repo": "",
+      "deploy": "https://www.ramoieeecefetrj.com.br/",
+      "image": "site-do-ramo.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Página Inicial do Sistema." },
+        { "link": "", "type": "image", "description": "Página Inicial do Administrador." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "Site do Computer Society - CEFET/RJ",
+      "resume": "Página web de divulgação do capítulo",
+      "description": "Site de divulgação e portifólio de projetos do capítulo do Computer Society do CEFET/RJ.",
+      "technologies": ["React", "Vue"],
+      "repo": "",
+      "deploy": "https://www.cs-cefetrj.com.br/",
+      "image": "site-cs.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Página Inicial do Sistema." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "Smart Garden",
+      "resume": "Sistema de Monitoramento de Irrigação (IoT)",
+      "description": "Software de gerenciamento de hortas automatizadas desenvolvido pela equipe CS/CEFET-RJ do IEEE em parceria com o PES/CEFET-RJ. A aplicação funciona como uma central de monitoramento e controle remoto da irrigação, utilizando sensores de umidade integrados via protocolo MQTT, caracterizando-se como um sistema IoT. A solução utiliza tecnologias de baixo custo e banco de dados para coleta, armazenamento e análise das medições, contribuindo para práticas agrícolas mais sustentáveis e acessíveis.",
+      "technologies": ["Node.js", "MQTT", "Knex", "MySQL", "TypeScript", "React Native", "Expo", "Docker", "Swagger"],
+      "repo": "https://github.com/WolfByte-CEFET-RJ/Web-Irrigador_automatico_application/tree/master",
+      "deploy": "",
+      "image": "smart-garden.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Interface do aplicativo móvel para monitoramento e controle da irrigação." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "ToDu System",
+      "resume": "Sistema de gerenciamento de tarefas e prazos",
+      "description": "API REST para gerenciamento de tarefas pessoais que permite aos usuários criar, organizar e acompanhar suas atividades diárias. O sistema oferece controle de prioridade, prazos e status das tarefas, além de notificações por e-mail quando o prazo de conclusão está próximo. Inclui autenticação de usuários, verificação em duas etapas via e-mail para alterações sensíveis e regras automáticas de gerenciamento de tarefas, como marcação de atrasos e remoção de tarefas concluídas. Desenvolvido com Node.js, Express, Knex e MySQL, com documentação via Swagger e containerização com Docker.",
+      "technologies": ["Node.js", "TypeScript", "Express", "MySQL", "Docker", "Mailer", "Swagger"],
+      "repo": "https://github.com/GustavoAndrad/ToDu_System",
+      "deploy": "",
+      "image": "todu.png",
+      "type": "solo",
+      "media": [
+        { "link": "", "type": "image", "description": "Logs de sistema do ToDu System mostrando a execução de tarefas, notificações e regras automáticas em ação." },
+        { "link": "", "type": "image", "description": "Modelagem da base de dados do sistema ToDu." },
+        { "link": "", "type": "image", "description": "Interface e identidade visual do sistema ToDu." }
+      ],
+      "documentation": "https://www.notion.so/ToDu-System-1-0-0-d1e61f25fd204e17b6253c142b4e571c"
+    },
+    {
+      "name": "Planeta Papel",
+      "resume": "Sistema de e-commerce para papelaria com iniciativas sustentáveis",
+      "description": "Sistema de e-commerce de uma papelaria com foco sustentável e iniciativas de reciclagem e uso inteligente de recursos com gerenciamento de produtos, pedidos, assinatura de planos e agendamento de coleta.",
+      "technologies": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      "repo": "https://github.com/GustavoAndrad/Planeta-Papel_PSW",
+      "deploy": "",
+      "image": "pp.jpeg",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Interface do sistema de e-commerce Planeta Papel, destacando a página de produtos." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "Software ODOYÁ",
+      "resume": "Sistema para gerenciamento de pontos de coleta de esponjas",
+      "description": "Sistema para controle de pontos de coleta de esponjas com cadastro de locais, registro de coletas, geração de relatórios e controles de acesso.",
+      "technologies": ["Node.js", "SQL", "Express", "Docker"],
+      "repo": "https://github.com/GustavoAndrad/sponge-collection-system",
+      "deploy": "",
+      "image": "odoya.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Interface do Software ODOYÁ mostrando o painel de controle para gerenciamento dos pontos de coleta de esponjas." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "Wise Finance",
+      "resume": "Aplicação de gerenciamento de finanças pessoais",
+      "description": "Plataforma de controle de entrada e saída financeira, geração de dashboards e relatórios, controle de limite de gastos e automatização.",
+      "technologies": ["Node.js", "Express", "Knex"],
+      "repo": "https://github.com/WolfByte-CEFET-RJ/Web-minicase_Wise_Finance",
+      "deploy": "",
+      "image": "wise-finance.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Trecho de código do backend da aplicação Wise Finance." }
+      ],
+      "documentation": ""
+    }
+  ]
+}
