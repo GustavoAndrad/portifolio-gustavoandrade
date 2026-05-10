@@ -41,7 +41,7 @@ function HomeSection() {
           <span className="dot dot-14" />
           <span className="dot dot-15" />
           <img
-            src="https://media.licdn.com/dms/image/v2/D4D03AQHbCHY7hMMXrQ/profile-displayphoto-scale_400_400/B4DZzLFTSqJUAk-/0/1772933694309?e=1775088000&v=beta&t=Wj3zW6uFbmSUoslLdnoYRqupjuKHU0tX9GrYVvGMTNo"
+            src="/gustavo-andrade.jpg"
             alt="Gustavo Andrade"
             className="home-photo"
           />
