@@ -52,19 +52,10 @@
   gap: 10px;
 }
 
-.contact-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--dark-green);
-  margin: 0;
-}
-
 .contact-title {
-  font-size: 2.4rem;
-  font-weight: 500;
-  letter-spacing: -0.8px;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: var(--text-h);
   margin: 0;
 }
@@ -80,8 +71,13 @@
 .contact-body {
   display: grid;
   grid-template-columns: 1fr 1px 1.6fr;
-  gap: 48px;
+  gap: 40px;
   align-items: start;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .contact-divider-v {
@@ -192,9 +188,9 @@
 
 .contact-field input,
 .contact-field textarea {
-  background: transparent;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px 14px;
   font-size: 0.86rem;
   color: var(--text-h);
@@ -213,15 +209,18 @@
 .contact-field input:focus,
 .contact-field textarea:focus {
   border-color: var(--dark-green);
+  box-shadow: 0 0 0 3px var(--green-soft);
 }
 
 .contact-submit {
   align-self: flex-start;
   background: var(--dark-green);
-  color: #fff;
+  color: var(--on-accent);
   border: none;
-  border-radius: 7px;
-  padding: 10px 24px;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-family: var(--sans);
+  box-shadow: 0 10px 24px -12px var(--dark-green);
   font-size: 0.86rem;
   font-weight: 600;
   cursor: pointer;
@@ -238,7 +237,8 @@
 @media (max-width: 720px) {
   .contact-body {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 28px;
+    padding: 22px;
   }
 
   .contact-divider-v {

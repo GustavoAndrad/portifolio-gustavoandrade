@@ -1,5 +1,6 @@
 import './ContactSection.css'
 import { contact } from '../../api/api'
+import { useLanguage } from '../../i18n/context'
 
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -20,6 +21,7 @@ const GmailIcon = () => (
 )
 
 export default function ContactSection() {
+  const { t } = useLanguage()
   const LINKS = [
     {
       label: 'LinkedIn',
@@ -50,18 +52,16 @@ export default function ContactSection() {
         <span key={n} className={`ct-dot ct-dot-${n}`} />
       ))}
 
-      <div className="contact-inner">
+      <div className="contact-inner reveal">
         <div className="contact-header">
-          <p className="contact-eyebrow">contato</p>
-          <h2 className="contact-title">Entre em contato</h2>
-          <p className="contact-subtitle">
-            Disponível para oportunidades, colaborações e projetos interessantes.
-          </p>
+          <p className="eyebrow">{t('contact.eyebrow')}</p>
+          <h2 className="contact-title">{t('contact.title')}</h2>
+          <p className="contact-subtitle">{t('contact.subtitle')}</p>
         </div>
 
         <div className="contact-body">
           <div className="contact-left">
-            <p className="contact-left-label">Redes</p>
+            <p className="contact-left-label">{t('contact.networks')}</p>
             <div className="contact-links">
               {LINKS.map(({ label, handle, href, Icon, color }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="contact-link">
@@ -90,21 +90,21 @@ export default function ContactSection() {
 
             <div className="contact-form-row">
               <div className="contact-field">
-                <label htmlFor="cf-name">Nome</label>
-                <input id="cf-name" name="name" type="text" placeholder="Seu nome" required />
+                <label htmlFor="cf-name">{t('contact.name')}</label>
+                <input id="cf-name" name="name" type="text" placeholder={t('contact.name.ph')} required />
               </div>
               <div className="contact-field">
-                <label htmlFor="cf-email">E-mail</label>
+                <label htmlFor="cf-email">{t('contact.email')}</label>
                 <input id="cf-email" name="email" type="email" placeholder="seu@email.com" required />
               </div>
             </div>
 
             <div className="contact-field">
-              <label htmlFor="cf-msg">Mensagem</label>
-              <textarea id="cf-msg" name="message" rows={5} placeholder="Me mande uma mensagem!" required />
+              <label htmlFor="cf-msg">{t('contact.message')}</label>
+              <textarea id="cf-msg" name="message" rows={5} placeholder={t('contact.message.ph')} required />
             </div>
 
-            <button type="submit" className="contact-submit">Enviar mensagem</button>
+            <button type="submit" className="contact-submit">{t('contact.send')}</button>
           </form>
         </div>
       </div>

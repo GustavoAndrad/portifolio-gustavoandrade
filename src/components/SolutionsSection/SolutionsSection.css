@@ -1,0 +1,227 @@
+/* Seção pensada para caber inteira em uma tela no desktop */
+.solutions-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-h));
+  padding: 48px 0;
+}
+
+.solutions-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 1240px;
+  padding: 0 24px;
+}
+
+.solutions-subtitle {
+  max-width: 620px;
+  text-align: center;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--gray);
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.solution-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+/* Brilho verde sutil no canto do card */
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--dark-green) 16%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.solution-card:hover {
+  border-color: var(--dark-green);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.solution-card:hover::before {
+  opacity: 1;
+}
+
+.solution-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.solution-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  color: var(--dark-green);
+  background: var(--green-soft);
+  border: 1px solid color-mix(in srgb, var(--dark-green) 25%, transparent);
+}
+
+.solution-tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: right;
+  color: var(--dark-green);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--green-soft);
+}
+
+.solution-title {
+  font-size: 1.12rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.solution-pitch {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.solution-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+.solution-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-h);
+}
+
+.solution-items svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: 0.64rem;
+  color: var(--dark-green);
+}
+
+/* CTA */
+.solutions-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 16px 14px 22px;
+  border: 1px dashed color-mix(in srgb, var(--dark-green) 45%, var(--border));
+  border-radius: 999px;
+  background: var(--green-soft);
+}
+
+.solutions-cta p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.solutions-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--dark-green);
+  color: var(--on-accent);
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px var(--dark-green);
+  transition: transform 0.2s;
+}
+
+.solutions-cta-btn svg {
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.solutions-cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.solutions-cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1100px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-section {
+    min-height: 0;
+    padding: 64px 0;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions-cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .solutions-cta-btn {
+    justify-content: center;
+  }
+}

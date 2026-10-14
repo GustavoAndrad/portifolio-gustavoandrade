@@ -3,10 +3,13 @@ import { createPortal } from 'react-dom'
 import { projects } from '../../api/api'
 import type { Project } from '../../api/api'
 import './ProjectsSection.css'
+import { useLanguage } from '../../i18n/context'
 
 const VISIBLE = 4
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const { t, l } = useLanguage()
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', onKey)
@@ -20,15 +23,15 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>✕</button>
+        <button className="modal-close" onClick={onClose} aria-label={t('projects.close')}>✕</button>
 
         <div className="modal-image">
           {project.image && <img src={`/${project.image}`} alt={project.name} />}
           <div className="modal-image-badges">
-            <span className="project-card-type">{project.type === 'coop' ? 'colaborativo' : 'solo'}</span>
+            <span className="project-card-type">{t(project.type === 'coop' ? 'projects.coop' : 'projects.solo')}</span>
             {project.deploy && (
               <a className="modal-live-btn" href={project.deploy} target="_blank" rel="noopener noreferrer">
-                ● ver projeto
+                ● {t('projects.view')}
               </a>
             )}
           </div>
@@ -38,7 +41,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <div className="modal-header">
             <div>
               <h2 className="modal-name">{project.name}</h2>
-              <p className="modal-resume">{project.resume}</p>
+              <p className="modal-resume">{l(project.resume)}</p>
             </div>
             {project.repo && (
               <a className="modal-link-btn" href={project.repo} target="_blank" rel="noopener noreferrer">
@@ -47,10 +50,10 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             )}
           </div>
 
-          <p className="modal-description">{project.description}</p>
+          <p className="modal-description">{l(project.description)}</p>
 
           <div className="modal-section">
-            <span className="modal-label">Tecnologias</span>
+            <span className="modal-label">{t('projects.technologies')}</span>
             <div className="modal-tags">
               {project.technologies.map(t => (
                 <span key={t} className="project-tag">{t}</span>
@@ -60,7 +63,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
           {project.documentation && (
             <div className="modal-section">
-              <span className="modal-label">Documentação</span>
+              <span className="modal-label">{t('projects.documentation')}</span>
               <a className="modal-doc-link" href={project.documentation} target="_blank" rel="noopener noreferrer">
                 {project.documentation} ↗
               </a>
@@ -74,6 +77,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 }
 
 function ProjectsSection() {
+  const { t, l } = useLanguage()
   const [start, setStart] = useState(0)
   const [animDir, setAnimDir] = useState<'left' | 'right' | null>(null)
   const [animKey, setAnimKey] = useState(0)
@@ -104,28 +108,19 @@ function ProjectsSection() {
     <section className="projects-section" id="projetos">
       {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
 
-      <span className="proj-dot proj-dot-1" />
-      <span className="proj-dot proj-dot-2" />
-      <span className="proj-dot proj-dot-3" />
-      <span className="proj-dot proj-dot-4" />
-      <span className="proj-dot proj-dot-5" />
-      <span className="proj-dot proj-dot-6" />
-      <span className="proj-dot proj-dot-7" />
-      <span className="proj-dot proj-dot-8" />
-      <span className="proj-dot proj-dot-9" />
-      <span className="proj-dot proj-dot-10" />
-      <span className="proj-dot proj-dot-11" />
-      <span className="proj-dot proj-dot-12" />
+      {Array.from({ length: 12 }, (_, i) => (
+        <span key={i} className={`proj-dot proj-dot-${i + 1}`} />
+      ))}
 
-      <div className="projects-inner">
-        <p className="projects-eyebrow">destaques</p>
-        <h2 className="projects-title">Projetos</h2>
+      <div className="projects-inner reveal">
+        <p className="eyebrow">{t('projects.eyebrow')}</p>
+        <h2 className="section-title">{t('projects.title')}</h2>
 
         <div className="projects-carousel">
           <button
             className={`carousel-arrow carousel-arrow--left${canPrev ? '' : ' carousel-arrow--hidden'}`}
             onClick={() => navigate('left')}
-            aria-label="Anterior"
+            aria-label={t('projects.prev')}
           >
             ‹
           </button>
@@ -143,11 +138,11 @@ function ProjectsSection() {
               >
                 <div className="project-card-image">
                   {project.image && <img src={`/${project.image}`} alt={project.name} />}
-                  {project.deploy && <span className="project-card-live">● deployed</span>}
+                  {project.deploy && <span className="project-card-live">● {t('projects.live')}</span>}
                 </div>
                 <div className="project-card-body">
                   <h3 className="project-card-name">{project.name}</h3>
-                  <p className="project-card-resume">{project.resume}</p>
+                  <p className="project-card-resume">{l(project.resume)}</p>
                   <div className="project-card-tags">
                     {project.technologies.slice(0, 3).map(t => (
                       <span key={t} className="project-tag">{t}</span>
@@ -164,7 +159,7 @@ function ProjectsSection() {
           <button
             className={`carousel-arrow carousel-arrow--right${canNext ? '' : ' carousel-arrow--hidden'}`}
             onClick={() => navigate('right')}
-            aria-label="Próximo"
+            aria-label={t('projects.next')}
           >
             ›
           </button>

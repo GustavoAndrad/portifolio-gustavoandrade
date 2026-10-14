@@ -1,19 +1,41 @@
-header {
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: background 0.25s, border-color 0.25s, backdrop-filter 0.25s;
+}
+
+.site-header--scrolled {
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom-color: var(--border);
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  gap: 24px;
+  height: var(--header-h);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
   position: relative;
 }
 
 .name {
-  font-size: 1.4rem;
+  font-family: var(--heading);
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: -0.3px;
   color: var(--text-h);
   position: relative;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .name::after {
@@ -22,58 +44,93 @@ header {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1px;
-  background-color: var(--dark-green);
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--dark-green), transparent);
 }
 
 .menu ul {
   display: flex;
-  gap: 32px;
+  gap: 6px;
   list-style: none;
 }
 
-.menu ul li {
-  font-size: 0.95rem;
+.menu ul li button {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--text);
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: color 0.2s;
-  position: relative;
-  padding-bottom: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s;
 }
 
-.menu ul li::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--dark-green);
-  transition: width 0.3s ease, left 0.3s ease;
+.menu ul li button:hover {
+  color: var(--text-h);
+  background: var(--green-soft);
 }
 
-.menu ul li:hover {
-  color: var(--text-hover);
-  transform: translateY(-5px);
-}
-
-.menu ul li:hover::after {
-  width: 100%;
-  left: 0;
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .contact {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 }
 
 .contact a {
-  color: var(--dark-green);
+  display: flex;
+  color: var(--gray);
+  transition: color 0.2s, transform 0.2s;
 }
 
 .contact a:hover {
-  color: var(--text-hover);
+  color: var(--dark-green);
+  transform: translateY(-2px);
+}
+
+/* Seletor de idioma */
+.lang-switch {
+  display: flex;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.lang-btn {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gray);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-btn:hover {
+  color: var(--text-h);
+}
+
+.lang-btn--active {
+  background: var(--dark-green);
+  color: var(--on-accent);
+}
+
+.lang-btn--active:hover {
+  color: var(--on-accent);
 }
 
 .hamburger {
@@ -89,8 +146,9 @@ header {
 
 .bar {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
+  border-radius: 2px;
   background-color: var(--text-h);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -114,7 +172,7 @@ header {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .hamburger {
     display: flex;
   }
@@ -131,22 +189,38 @@ header {
     right: 0;
     background-color: var(--bg);
     border-bottom: 1px solid var(--border);
-    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    padding: 16px 24px 24px;
     z-index: 99;
   }
 
   .menu.open {
     display: block;
+    animation: menuIn 0.2s ease;
   }
 
   .menu ul {
     flex-direction: column;
-    gap: 20px;
+    gap: 4px;
+  }
+
+  .menu ul li button {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border-radius: 10px;
   }
 
   .mobile-contact {
     display: flex;
-    margin-top: 24px;
-    gap: 16px;
+    margin-top: 16px;
+    padding: 0 14px;
+    gap: 20px;
   }
+}
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
 }

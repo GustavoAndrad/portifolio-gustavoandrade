@@ -1,19 +1,29 @@
 :root {
-  --text: #151915;
-  --text-h: #08060d;
-  --bg: #f3f3f3;
-  --border: #9c9c9c;
-  --text-hover: #91a991;
+  --text: #3b403b;
+  --text-h: #0d120e;
+  --bg: #f4f5f2;
+  --surface: #ffffff;
+  --border: #d4d8d2;
+  --border-strong: #9c9c9c;
+  --text-hover: #5f8a66;
 
   --dark-green: #079039;
-  --gray: #525252;
+  --on-accent: #ffffff;
+  --green-soft: color-mix(in srgb, var(--dark-green) 10%, transparent);
+  --gray: #5b615b;
 
+  --radius: 14px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.12);
+  --shadow-hover: 0 2px 4px rgb(0 0 0 / 0.05), 0 18px 40px -16px color-mix(in srgb, var(--dark-green) 45%, transparent);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
 
-  letter-spacing: 0.18px;
+  --header-h: 72px;
+
+  font-family: var(--sans);
+  letter-spacing: 0.1px;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -21,47 +31,49 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
+    --text: #a8b0a9;
     --text-hover: #c8d5c8;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
+    --text-h: #f1f4f1;
+    --bg: #111312;
+    --surface: #181b19;
+    --border: #2a2e2b;
+    --border-strong: #3d423e;
     --dark-green: #34d058;
-    --gray: #9ca3af;
+    --on-accent: #07140b;
+    --gray: #8c948d;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
 
 body {
   margin: 0;
   padding: 0;
   border: none;
-  scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0;
 }
 
 h2 {
@@ -69,13 +81,63 @@ h2 {
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
 
 p {
   margin: 0;
+}
+
+/* Rótulo de seção (eyebrow) compartilhado */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.eyebrow::before {
+  content: '// ';
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-h);
+  margin: 0;
+  text-align: center;
+}
+
+/* Entrada suave ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--dark-green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--dark-green) 30%, transparent);
 }
 
 ::-webkit-scrollbar {
@@ -87,7 +149,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-strong);
   border-radius: 999px;
 }
 
@@ -97,5 +159,5 @@ p {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+  scrollbar-color: var(--border-strong) transparent;
 }
