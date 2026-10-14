@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "15/03/2026",
+  "updated_at": "14/10/2026",
   "photo_profile": "https://media.licdn.com/dms/image/v2/D4D03AQHbCHY7hMMXrQ/profile-displayphoto-scale_400_400/B4DZzLFTSqJUAk-/0/1772933694309?e=1775088000&v=beta&t=Wj3zW6uFbmSUoslLdnoYRqupjuKHU0tX9GrYVvGMTNo",
   "contact": {
     "linkedin": "https://www.linkedin.com/in/gustavo--andrade",
@@ -43,6 +43,21 @@
   },
   "projects": [
     {
+      "name": "TIAGO Dados Abertos",
+      "resume": "Assistente de IA generativa do Portal de Dados Abertos do ONS",
+      "description": "Ferramenta de inteligência artificial generativa do Operador Nacional do Sistema Elétrico (ONS) que permite consultar, em linguagem natural, as informações publicadas no Portal de Dados Abertos do setor elétrico brasileiro. Por meio de uma interface conversacional, o usuário pode perguntar, por exemplo, sobre geração solar no Nordeste, comparações de carga entre subsistemas, intercâmbios de energia entre regiões ou energia armazenada nos reservatórios, escolhendo entre respostas diretas ou detalhadas. O projeto foi lançado junto com o primeiro servidor MCP (Model Context Protocol) do setor elétrico brasileiro, que funciona como uma ponte padronizada e segura entre ferramentas de IA e as bases do portal, permitindo que agentes externos conectem seus próprios sistemas de IA aos dados do ONS para criar aplicações, análises e automações. Atuei no desenvolvimento como parte do time de estagiários em Inteligência Artificial do ONS, contribuindo para ampliar a transparência e facilitar o acesso aos dados para empresas, agentes do setor e a sociedade.",
+      "technologies": ["Python", "IA Generativa", "LLM", "MCP", "Agentes de IA", "AWS"],
+      "repo": "",
+      "deploy": "https://dados.tiago.ons.org.br/",
+      "image": "tiago-ons.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Interface conversacional do TIAGO com exemplos de perguntas sobre o setor elétrico e seleção entre respostas diretas e detalhadas." },
+        { "link": "https://www.linkedin.com/feed/update/urn:li:activity:7495580897501597697/", "type": "link", "description": "Publicação sobre o lançamento do TIAGO Dados Abertos e do primeiro MCP do setor elétrico brasileiro." }
+      ],
+      "documentation": ""
+    },
+    {
       "name": "S.O.N.I.A",
       "resume": "Sistema multi-agente de IA para análise de dados do ONS",
       "description": "Plataforma de análise de dados baseada em IA desenvolvida no Hackathon ONS 2025 (DataThons) para democratizar o acesso aos dados públicos do Operador Nacional do Sistema Elétrico. Foi o projeto ganhador da competição. O sistema utiliza uma arquitetura multi-agente com LLMs e busca vetorial para transformar dados técnicos em insights acessíveis por meio de linguagem natural em português. A solução inclui ingestão inteligente de dados a partir de buckets AWS S3, análise automatizada e geração dinâmica de visualizações, permitindo que usuários explorem grandes volumes de dados energéticos de forma simples e eficiente.",
@@ -56,6 +71,50 @@
         { "link": "", "type": "image", "description": "Interface da plataforma permitindo consultas em linguagem natural e geração automática de visualizações a partir dos dados energéticos." }
       ],
       "documentation": "https://github.com/J-cavadinha/Sonia-HackatONS"
+    },
+    {
+      "name": "Rio de Impacto",
+      "resume": "Plataforma da rede de apoio a Negócios de Impacto Socioambiental do RJ",
+      "description": "Portal da Rede Rio de Impacto, iniciativa criada em 2016 que reúne instituições dinamizadoras do ecossistema de Negócios de Impacto Socioambiental (NIS) do estado do Rio de Janeiro, como UFRJ, UERJ, COPPE, Sebrae e FAPERJ. A plataforma conecta os atores do ecossistema e reúne diretórios de instituições e pessoas, cadastro de dinamizadoras e negócios de impacto, notícias sobre editais, financiamentos e prêmios, biblioteca com publicações, podcasts e seminários, trilhas formativas, agenda de eventos e o Observatório. Minha atuação no projeto foi na análise de requisitos: levantamento das necessidades junto aos stakeholders, definição das funcionalidades, modelagem dos fluxos de cadastro e organização das informações que orientaram o desenvolvimento da plataforma.",
+      "technologies": ["Análise de Requisitos", "Engenharia de Software", "UX/UI", "Design Thinking", "Gestão de Projetos"],
+      "repo": "",
+      "deploy": "https://riodeimpacto.com.br/",
+      "image": "rio-de-impacto.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Página inicial da plataforma Rio de Impacto com acesso aos diretórios, notícias, biblioteca e Observatório." }
+      ],
+      "documentation": ""
+    },
+    {
+      "name": "Cartuga",
+      "resume": "Sistema de controle financeiro e projeção de renda",
+      "description": "Aplicação full-stack de finanças pessoais cujo principal objetivo é projetar o saldo dos próximos meses. Permite registrar entradas e saídas fixas ou pontuais, compras parceladas no cartão e uma reserva financeira (\"cofre\"), com suporte a múltiplas moedas (BRL, USD e EUR) usando a cotação PTAX do Banco Central. Inclui importação de extratos bancários em CSV (Inter e Nubank), itens planejados aguardando revisão, exportação em PDF/CSV, área administrativa de usuários e backups, e um assistente de IA que utiliza ferramentas determinísticas para garantir a precisão dos números. No backend, a arquitetura em camadas (routers, services, repositories e models) concentra todos os cálculos de saldo em um motor financeiro central, com autenticação JWT e senhas com Argon2id. O projeto é um MVP desenvolvido com assistência do Claude Code e conta com mais de 240 testes automatizados.",
+      "technologies": ["React", "TypeScript", "Vite", "Vibecoding", "Tailwind CSS", "TanStack Query", "Highcharts", "Python", "FastAPI", "SQLAlchemy", "Alembic", "MySQL", "Docker", "Pytest", "IA"],
+      "repo": "https://github.com/GustavoAndrad/cartuga",
+      "deploy": "",
+      "image": "cartuga.png",
+      "type": "solo",
+      "media": [
+        { "link": "", "type": "image", "description": "Dashboard do Cartuga com a projeção de saldo dos próximos meses." },
+        { "link": "", "type": "image", "description": "Assistente de IA respondendo perguntas sobre as finanças do usuário." }
+      ],
+      "documentation": "https://github.com/GustavoAndrad/cartuga/tree/main/docs"
+    },
+    {
+      "name": "MonIoT Ambiental",
+      "resume": "Sistema orientado a eventos para monitoramento ambiental em tempo real",
+      "description": "Sistema de monitoramento ambiental em tempo real desenvolvido na disciplina de Arquitetura e Padrões de Software do CEFET/RJ. Sensores distribuídos (simulados em software) publicam continuamente leituras de temperatura, umidade, vento e outros indicadores ambientais, e cada leitura é tratada como um evento consumido por serviços independentes: um serviço de alertas que identifica situações de risco, um dashboard para visualização dos dados em tempo real e um serviço de histórico para armazenamento e análise. A solução aplica uma arquitetura publish/subscribe com MQTT, desacoplando o simulador de sensores (publisher) dos serviços (subscribers), além de padrões de projeto como Factory Method na criação dos sensores, demonstrando como sistemas reativos orientados a eventos favorecem escalabilidade e modularidade.",
+      "technologies": ["JavaScript", "Node.js", "MQTT", "Express", "React", "RabbitMQ"],
+      "repo": "https://github.com/GustavoAndrad/Monitoramento_Ambiental_IoT",
+      "deploy": "",
+      "image": "monitoramento-ambiental.png",
+      "type": "coop",
+      "media": [
+        { "link": "", "type": "image", "description": "Dashboard em tempo real exibindo as leituras dos sensores ambientais e os alertas gerados." },
+        { "link": "", "type": "image", "description": "Diagrama da arquitetura publish/subscribe entre o simulador de sensores e os serviços de alerta, histórico e dashboard." }
+      ],
+      "documentation": ""
     },
     {
       "name": "Site do Ramo IEEE CEFET/RJ",
